@@ -1,2 +1,2 @@
 # AntiAbusiveEnchants
-Say bay to those enchants abusers.
+Say bye to those enchants abusers.
