@@ -26,7 +26,7 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->getLogger()->info(TF::GREEN."Enabled!");
 		if($this->getMax() === 5){
-			$this->getLogger()->info(TF::GOLD."The enchantment max level is changeable in the config.yml!(/root/plugins/AntiAbusiveEnchants/config.yml)");
+			$this->getLogger()->info(TF::GOLD."The enchantment max level is changeable in the config.yml!(" . $this->getServer()->getDataPath() . "/plugins/AntiAbusiveEnchants/config.yml)");
 		}
 	}
 
