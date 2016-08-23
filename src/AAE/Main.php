@@ -24,7 +24,7 @@ class Main extends PluginBase implements Listener{
 
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
-		$this->getLogger()->info(TF::GREEN."Enabled!");
+		$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."Enabled!");
 			$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."The enchantment max level is changeable in the config.yml!(" . $this->getServer()->getDataPath() . "/plugins/AntiAbusiveEnchants/config.yml)");
 		$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."The current max enchant level is ".$this->config->get("max-level");
 		
