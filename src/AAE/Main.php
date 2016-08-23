@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener{
 	}
 
 	public function onDisable(){
-		$this->getLogger()->info(TF::RED."Disabled!");
+		$this->getLogger()->info(TF::GREEN."[AAE]".TF::RED."Disabled!");
 	}
 
 	public function getMax(){
