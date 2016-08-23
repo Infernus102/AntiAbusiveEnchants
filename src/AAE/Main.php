@@ -50,6 +50,7 @@ class Main extends PluginBase implements Listener{
 							$p->getInventory()->removeItem($i);
 							$this->getServer()->getLogger()->info(TF::GREEN."[AntiAbusiveEnchants]".TF::BLUE."Item ".$i->getName()." has been removed from ".$p->getName()."'s inventory for a enchantment level over ".$this->getMax()."!");
 							$p->sendMessage(TF::GREEN."[AntiAbusiveEnchants]".TF::BLUE.$i->getName()." has been removed from your inventory for being above or equal to the max enchantment level!");
+$this->getServer->broadcast(TF::GREEN."[AntiAbusiveEnchants]".TF::BLUE."Item ".$i->getName()." has been removed from ".$p->getName()."'s inventory for a enchantment level over ".$this->getMax()."!");
 						}
 					}
 				}
