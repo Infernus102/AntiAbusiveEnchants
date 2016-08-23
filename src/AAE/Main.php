@@ -49,7 +49,6 @@ class Main extends PluginBase implements Listener{
 						if($e->getLevel() >= $max){
 							$levelofenchant = $e->getLevel();
 							$p->getInventory()->removeItem($i);
-							
 							$p->sendMessage(TF::GREEN."[AAE]".TF::BLUE.$i->getName()." has been removed from your inventory for being above or equal to the max enchantment level!");
 $this->getServer()->broadcastMessage(TF::GREEN."[AAE]".TF::BLUE."Item ".$i->getName()." has been removed from ".$p->getName()."'s inventory for a enchantment level over ".$this->getMax()."!");
 						}
