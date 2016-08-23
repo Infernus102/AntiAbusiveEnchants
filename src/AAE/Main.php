@@ -17,12 +17,9 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener{
 
-	public function onLoad(){
-		@mkdir($this->getDataFolder());
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("max-level" => 5));
-	}
-
 	public function onEnable(){
+			@mkdir($this->getDataFolder());
+        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("max-level" => 5));
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
 		$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."Enabled!");
 			$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."The enchantment max level is changeable in the config.yml!(" . $this->getServer()->getDataPath() . "/plugins/AntiAbusiveEnchants/config.yml)");
@@ -30,7 +27,7 @@ class Main extends PluginBase implements Listener{
 		
 	  }
 	
-	}
+	
 
 	public function onDisable(){
 		$this->getLogger()->info(TF::GREEN."[AAE]".TF::RED."Disabled!");
