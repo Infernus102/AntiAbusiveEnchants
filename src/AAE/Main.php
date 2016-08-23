@@ -17,21 +17,20 @@ use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener{
 
-	public function onLoad(){
-		@mkdir($this->getDataFolder());
-        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("max-level" => 5));
-	}
-
 	public function onEnable(){
+			@mkdir($this->getDataFolder());
+        $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML,array("max-level" => 5));
 		$this->getServer()->getPluginManager()->registerEvents($this,$this);
-		$this->getLogger()->info(TF::GREEN."Enabled!");
-		if($this->getMax() === 5){
-			$this->getLogger()->info(TF::GOLD."The enchantment max level is changeable in the config.yml!(" . $this->getServer()->getDataPath() . "/plugins/AntiAbusiveEnchants/config.yml)");
-		}
-	}
+		$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."Enabled!");
+			$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."The enchantment max level is changeable in the config.yml!(" . $this->getServer()->getDataPath() . "/plugins/AntiAbusiveEnchants/config.yml)");
+		$this->getLogger()->info(TF::GREEN."[AAE]".TF::GOLD."The current max enchant level is ".$this->config->get("max-level"));
+		
+	  }
+	
+	
 
 	public function onDisable(){
-		$this->getLogger()->info(TF::RED."Disabled!");
+		$this->getLogger()->info(TF::GREEN."[AAE]".TF::RED."Disabled!");
 	}
 
 	public function getMax(){
@@ -47,9 +46,10 @@ class Main extends PluginBase implements Listener{
 				if($i->hasEnchantments()){
 					foreach($i->getEnchantments() as $e){
 						if($e->getLevel() >= $max){
+							$levelofenchant = $e->getLevel();
 							$p->getInventory()->removeItem($i);
-							$this->getServer()->getLogger()->info(TF::GREEN."[AntiAbusiveEnchants]".TF::BLUE."Item ".$i->getName()." has been removed from ".$p->getName()."'s inventory for a enchantment level over ".$this->getMax()."!");
-							$p->sendMessage(TF::GREEN."[AntiAbusiveEnchants]".TF::BLUE.$i->getName()." has been removed from your inventory for being above or equal to the max enchantment level!");
+							$p->sendMessage(TF::GREEN."[AAE]".TF::BLUE.$i->getName()." has been removed from your inventory for being above or equal to the max enchantment level!");
+$this->getServer()->broadcastMessage(TF::GREEN."[AAE]".TF::BLUE."Item ".$i->getName()." has been removed from ".$p->getName()."'s inventory for a enchantment level of ".$levelofenchant."!");
 						}
 					}
 				}
