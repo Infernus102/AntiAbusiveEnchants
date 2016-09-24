@@ -38,7 +38,6 @@ class Main extends PluginBase implements Listener{
 	public function onItemHeld(PlayerItemHeldEvent $ev){
 		$p = $ev->getPlayer();
 		$max = $this->getMax();
-		$contents = $p->getInventory()->getContents();
 		$i = $p->getInventory()->getItemInHand();
 		if($i instanceof Item){
 			if($i->hasEnchantments()){
